@@ -25,12 +25,24 @@ class MarvelService {
     }
 
     _transformCharacter = (character) => {
+        const {name, description, thumbnail, urls} = character;
+
+        const transformDescription = (text) => {
+            if (!text) {
+                return 'No Description.';
+            } else if (text.length > 175) {
+                return `${text.slice(0, 175)}...`;
+            }
+
+            return description;
+        }
+
         return {
-            name: character.name,
-            description: character.description,
-            thumbnail: character.thumbnail.path + '.' + character.thumbnail.extension,
-            homepage: character.urls[0].url,
-            wiki: character.urls[1].url,
+            name,
+            description: transformDescription(description),
+            thumbnail: thumbnail.path + '.' + thumbnail.extension,
+            homepage: urls[0].url,
+            wiki: urls[1].url,
         }
     }
 }
