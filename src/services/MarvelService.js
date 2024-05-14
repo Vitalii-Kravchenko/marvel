@@ -25,7 +25,7 @@ class MarvelService {
     }
 
     _transformCharacter = (character) => {
-        const {name, description, thumbnail, urls} = character;
+        const {id, name, description, thumbnail, urls} = character;
 
         const transformDescription = (text) => {
             if (!text) {
@@ -38,6 +38,7 @@ class MarvelService {
         }
 
         return {
+            id,
             name,
             description: transformDescription(description),
             thumbnail: thumbnail.path + '.' + thumbnail.extension,

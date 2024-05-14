@@ -7,11 +7,6 @@ import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
 
 class RandomChar extends Component {
-    constructor(props) {
-        super(props);
-        console.log('gg')
-    }
-
     state = {
         char: {},
         loading: true,
@@ -36,6 +31,7 @@ class RandomChar extends Component {
             loading: true,
             error: false
         });
+
         this.updateChar();
     }
 
@@ -94,7 +90,7 @@ const View = ({char}) => {
             <img src={thumbnail}
                  alt="Random character"
                  className="randomchar__img"
-                 style={objectFitImg ? {'object-fit' : 'contain'} : null}
+                 style={objectFitImg ? {'objectFit' : 'contain'} : null}
             />
             <div className="randomchar__info">
                 <p className="randomchar__name">{name}</p>
