@@ -64,7 +64,7 @@ class CharInfo extends Component {
     render() {
         const {char, loading, error} = this.state;
 
-        const skeleton =  char || loading || error ? null : <Skeleton/>
+        const skeleton = char || loading || error ? null : <Skeleton/>
         const spinner = loading ? <Spinner/> : null;
         const errorMessage = error ? <ErrorMessage/> : null;
         const content = !(loading || error || !char) ? <View char={char}/> : null;
