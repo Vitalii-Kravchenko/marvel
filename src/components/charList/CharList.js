@@ -35,15 +35,18 @@ class CharList extends Component {
         })
     }
 
-    renderList(charList) {
+    renderList = (charList) => {
         const content = charList.map(({id, name, thumbnail}) => {
             const objectFitImg = thumbnail.slice(-23) === 'image_not_available.jpg';
 
             return (
-                <li className="char__item" key={id}>
+                <li
+                    className="char__item"
+                    key={id}
+                    onClick={() => this.props.onCharSelected(id)}>
                     <img
                         src={thumbnail}
-                        alt="abyss"
+                        alt={name}
                         style={objectFitImg ? {'objectFit': 'contain'} : null}
                     />
                     <div className="char__name">{name}</div>
