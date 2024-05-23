@@ -59,15 +59,40 @@ class CharList extends Component {
         })
     }
 
+    charItemRefs = [];
+
+    setCharItemRef = (ref) => {
+        this.charItemRefs.push(ref);
+    }
+
+    setCharItemFocus = (id) => {
+        this.charItemRefs.forEach(item => item.classList.remove('char__item_selected'));
+        this.charItemRefs[id].classList.add('char__item_selected');
+        this.charItemRefs[id].focus();
+    }
+
+
     renderList = (charList) => {
-        const content = charList.map(({id, name, thumbnail}) => {
+        const content = charList.map(({id, name, thumbnail}, i) => {
             const objectFitImg = thumbnail.slice(-23) === 'image_not_available.jpg';
 
             return (
                 <li
                     className="char__item"
                     key={id}
-                    onClick={() => this.props.onCharSelected(id)}>
+                    ref={this.setCharItemRef}
+                    tabIndex={0}
+                    onClick={(e) => {
+                        this.props.onCharSelected(id)
+                        this.setCharItemFocus(i)
+                    }}
+                    onKeyPress={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.props.onCharSelected(id)
+                            this.setCharItemFocus(i)
+                        }
+                    }}>
                     <img
                         src={thumbnail}
                         alt={name}
