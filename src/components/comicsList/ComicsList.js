@@ -54,7 +54,7 @@ const ComicsList = () => {
                             alt={title}
                             className="comics__item-img"/>
                         <div className="comics__item-name">{title}</div>
-                        <div className="comics__item-price">{price}$</div>
+                        <div className="comics__item-price">{price}</div>
                     </a>
                 </li>
             )
