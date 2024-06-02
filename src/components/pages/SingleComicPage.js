@@ -7,11 +7,10 @@ import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
 import './singleComicPage.scss';
-import Skeleton from "../skeleton/Skeleton";
 
 const SingleComicPage = () => {
-    const {comicId} = useParams();
     const [comic, setComic] = useState(null);
+    const {comicId} = useParams();
 
     const {loading, error, getComic, clearError} = useMarvelService();
 
