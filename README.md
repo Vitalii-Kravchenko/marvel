@@ -13,11 +13,12 @@ Marvel App – это проект, созданный с использован
 
 ## Технологии:
 - React.js
-- Redux
 - React Router
-- Axios
-- PropTypes
-- SASS
+- Formik
+- Yup
+- Sass
+- Prop-Types
+- React Helmet
 
 ## Установка и запуск:
 
